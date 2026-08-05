@@ -15,4 +15,14 @@ In this project, we diving deeper into react by mastering hooks and react router
 
 ### Multipage Single Page Application
 - use routing to create multipage SPA, because React cannot use multipage routing.
+- Routing simply means that different paths in the URL load different pages.
+- There's a popular package called [ReactRouter](https://reactrouter.com/)
+- to get started, create your react app 'amazon-clone'.
 
+## Questions and Answers:
+
+What is React Routing?
+ > A mechanism for defining and navigating between different views or pages in a React application.
+
+What is the primary purpose of React Router in a React application?
+ > To enable navigation and view management within a single-page application.
