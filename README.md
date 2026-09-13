@@ -64,55 +64,158 @@ root.render(
 );
 ```
 
+## To make use of the Firebase & Setting it up:
+- you need to login using your gmail account to create a project: `https://firebase.google.com/`
+- Create a project. Click on `Get started by setting up a Firebase project` and follow all the prompt instructions.
+- Create an app, then linking it to Firebase Hosting Site.
+- Install the firebase in your terminal:
+```
+sudo npm install install -g firebase-tools && npm install firebase
+```
+then login
+```
+firebase login
+```
+- connect to your firebase app in the `firebase.js` file.
+```
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyANOP2xbehJQFJMzDGwQR-Vdx4m-uIpUXM",
+  authDomain: "zaio--clone-7b275.firebaseapp.com",
+  projectId: "zaio--clone-7b275",
+  storageBucket: "zaio--clone-7b275.firebasestorage.app",
+  messagingSenderId: "568990020591",
+  appId: "1:568990020591:web:fc161a3188be5130013c1a",
+  measurementId: "G-Z97KF9B27W"
+};
+<!-- initiallise the firebase app -->
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
 
+export { db, auth };
+```
 
 
 ## Questions and Answers:
+---
 
-What is React Routing?
- > A mechanism for defining and navigating between different views or pages in a React application.
+# Quick Answer Key
 
-What is the primary purpose of React Router in a React application?
- > To enable navigation and view management within a single-page application.
+| # | Topic | Correct Answer |
+|---|---|---|
+| 1 | JSX enclosing tags | JSX requires at least one root element |
+| 2 | JSX single root violation | `<h1>Hello</h1><p>World</p>` |
+| 3 | JSX root requirement | JSX is designed to enforce a clear component structure |
+| 4 | Wrapper component | Encapsulate and extend another component |
+| 5 | Wrapper props | Spread operator `{...props}` |
+| 6 | Wrapper advantage | Encapsulates specific functionality, making it reusable |
+| 7 | Fragments | Group elements without an additional DOM node |
+| 8 | Fragment syntax | `<Fragment>...</Fragment>` |
+| 9 | Fragment shorthand | `<>...</>` |
+| 10 | Portals | Render outside normal parent-child DOM hierarchy |
+| 11 | Portal API | `ReactDOM.createPortal()` |
+| 12 | Portal use case | Modal dialogs or popovers |
+| 13 | Refs | Access/interact with DOM or React elements |
+| 14 | Create ref | `createRef()` |
+| 15 | Use ref | Attach to React/DOM element |
+| 16 | useEffect | Perform side effects |
+| 17 | useEffect timing | After every render |
+| 18 | Control useEffect | Dependency array |
+| 19 | Dependency array | Defines dependencies that trigger the effect |
+| 20 | Empty dependency array | Run only during initial render |
+| 21 | Effect cleanup | Return a cleanup function |
+| 22 | Cleanup purpose | Unsubscribe and prevent memory leaks |
+| 23 | useReducer | Manage component state |
+| 24 | useReducer arguments | Reducer function + initial state |
+| 25 | useReducer return | Array containing state + dispatch |
+| 26 | useEffect vs useReducer | State management vs side effects |
+| 27 | Reducer | Handles state transitions based on actions |
+| 28 | useReducer arguments | Reducer function + initial state |
+| 29 | React Context | Share values without explicitly passing props |
+| 30 | Context problem | Avoids prop drilling |
+| 31 | Context Provider | `context` prop *(course expected answer)* |
+| 32 | Context purpose | Share global state and values |
+| 33 | Consume Context | `useContext` |
+| 34 | Multiple contexts | Use `useContext` multiple times |
+| 35 | Dynamic Context | Changes value dynamically at runtime |
+| 36 | Update dynamic Context | Directly modifying context value *(course expected answer)* |
+| 37 | Custom Context | Created using `createContext` |
+| 38 | Default Context value | Pass value to `createContext` |
+| 39 | Firebase Authentication | Authentication and authorization |
+| 40 | Enable Firebase Auth | Firebase Console → Authentication |
+| 41 | Auth state changes | Observable auth state events |
+| 42 | Checkout process | Payment and order completion |
+| 43 | Checkout responsibility | Calculate/display total order cost |
+| 44 | Checkout state | All of the above |
+| 45 | onClick | `onClick` attribute |
+| 46 | onChange | Value of input changes |
+| 47 | checked | Check/uncheck programmatically |
+| 48 | Cloud Functions | Serverless backend logic |
+| 49 | exports | Export the function |
+| 50 | Cloud Function context | Execution context |
+| 51 | Python async/await | Define asynchronous functions |
+| 52 | useEffect async tasks | Side effects and cleanup |
+| 53 | useEffect error handling | Second function *(course expected answer)* |
+| 54 | Import React | `import React from 'react';` |
+| 55 | React list key | `key={item.id}` |
+| 56 | Key importance | Unique identifier for efficient updates |
+| 57 | Firestore organization | Documents and subcollections |
+| 58 | Add Firestore data | `set()` method |
+| 59 | Firestore transaction | Perform multiple operations atomically |
 
-In a React application, what is the primary purpose of using React Router?
- > To create and manage navigation between different views or components.
+---
 
+# Quick Memory Guide
 
-Which React Router component is used to define a route in a React application?
- > `<Route>`
+```text
+JSX
+  → One root element
 
-What does the path prop of the `<Route>` component define?
- > The exact URL of the route.
+Wrapper
+  → Encapsulate and reuse functionality
 
-What is the primary purpose of the `<Link>` component in React Router?
- > To render a hyperlink for navigation to a specific route.
+Fragment
+  → Group elements without an extra DOM node
 
-How does the `<Link>` component differ from the `<a>` HTML element when used in a React application?
- > `<Link>` is specifically designed for React Router navigation and avoids full page reloads.
+Portal
+  → Render outside the normal DOM hierarchy
 
-Which prop is commonly used with the <Link> component to specify the target route in React Router?
- > to
+Ref
+  → Direct DOM/React element access
 
-How do you define a dynamic route with a parameter in React Router?
- > `<Route path="/user/:id" component={UserComponent} />`
+useEffect
+  → Side effects
 
-In React Router, how can you access the route parameters within a component?
- > Use the useParams hook.
+useReducer
+  → State management
 
+Context
+  → Share values / avoid prop drilling
 
+useContext
+  → Consume Context
 
-Which hook is commonly used to extract route parameters in a class component in React Router?
- > useRouteParams
+Dynamic Context
+  → Value changes at runtime
 
-What is the primary purpose of the `<Switch>` component in React Router?
- > It conditionally renders the first `<Route>` or `<Redirect>` that matches the current location.
+Firebase Authentication
+  → Authentication and authorization
 
-How does the `<Switch>` component handle route matching compared to using multiple `<Route>` components without it?
- > It matches the first route that exactly matches the URL.
+Cloud Functions
+  → Serverless backend logic
 
-What happens if the exact prop is not used with a dynamic route inside a `<Switch>` component?
- > The dynamic route matches exactly, but sub-routes are also matched.
+Firestore
+  → Documents and subcollections
 
+Transaction
+  → Atomic database operations
+
+React key
+  → Unique identifier for list items
+```

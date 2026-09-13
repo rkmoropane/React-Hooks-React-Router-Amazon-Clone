@@ -9,10 +9,11 @@ import Login from "./components/Login";
 import Order from "./components/Order";
 import Prime from "./components/Prime";
 import Shopping from "./components/Shopping";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   return (
-    <div>
+    <>
       <Header />
 
       <main>
@@ -23,7 +24,7 @@ const App = () => {
           <Route path="/home">
             <Home />
           </Route>
-          
+
           {/* Use the exact prop, to match the exact page - Products */}
           <Route path="/products" exact>
             <Products />
@@ -47,9 +48,14 @@ const App = () => {
           <Route path="/shopping">
             <Shopping />
           </Route>
+
+          <Route path="*">
+            <NotFound />
+          </Route>
+
         </Switch>
       </main>
-    </div>
+    </>
   );
 };
 
